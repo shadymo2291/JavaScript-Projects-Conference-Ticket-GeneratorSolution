@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference ticket generator</title>
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background_container">
+        <!-- header -->
+        <header>
+            <img src="assets/images/logo-full.svg" alt="logo">
+        </header>
+
+        <!-- Main -->
+    
+        <main>
+            <div class="intro">
+                <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+                <p>Secure your spot at next year's biggest coding conference.</p>
+            </div>
+
+            <section class="upload ">
+                <p>Upload Avatar</p>
+                <div class="upload_container" tabindex="0">
+                    <div class="unloaded">
+                        <span>
+                            <img src="assets/images/icon-upload.svg" alt="icon-upload">
+                        </span>
+                        <p>Drag and drop or click to upload</p>
+                    </div>
+                    <div class="loaded">
+                        <span>
+                            <img src="assets/images/image-avatar.jpg" alt="image-avatar">
+                        </span>
+                        <div>
+                            <span class="remove">Remove Image</span>
+                            <span class="change">Change Image</span>
+                        </div>
+                        <input type="file" class="upload_files" hidden>
+                    </div>
+                </div>
+                <p>
+                    <span></span>
+                    upload Upload your photo (JPG or PNG, max size: 500KB).
+                </p>
+            </section>
+
+            <form action="">
+                <div class="name">
+                    <label for="name">Full Name</label>
+                    <span class="outer_border" >
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required>
+                    </span>
+                </div>
+
+                <div class="email">
+                    <label for="email">Email Address</label>
+                    <span class="outer_border">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                            placeholder="example@Email.com" 
+                            required>
+                    </span>
+                    <p>
+                        <span></span>
+                        Please enter a valid email address.
+                    </p>
+                </div>
+
+                <div class="github_username">
+                    <label for="github_username">GitHub Username</label>
+                    <span class="outer_border"> 
+                        <input 
+                        type="text" 
+                        id="github_username" 
+                        name="github_username" 
+                        placeholder="@yourusername" 
+                        required>
+                    </span>
+                </div>
+
+                <button aria-label="submit to generate your ticket" type="submit" class="outer_border">Generate My Ticket</button>
+            </form>
+
+            <section class="showing_card">
+                <div class="info">
+                    <h2>
+                        Congrats,
+                        <span class="displaied_name">Shady Mohamed!</span> 
+                        Your ticket is ready.
+                    </h2>
+                    <p>
+                        We've emailed your ticket to <span class="displaied_email">shady.mohamed1188@gmail.com</span>
+                        and will send updates in the run up to the event.
+                    </p>
+                </div>
+                <div class="card">
+                    <span class="logo"></span>
+                    <p class="date_location">
+                        <span class="date"></span> / Austin, Tx
+                    </p>
+                    <div class="person">
+                        <span class="image"></span>
+                        <div class="person_info">
+                            <span class="person_info_name">Shady Mohamed</span>
+                            <span class="person_info_github">
+                                <span class="github_image"></span>
+                                <span class="github_name">@Shady Mohamed</span>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="serial_num">#22T932</p>
+                </div>
+            </section>
+        </main>
+        
+    </div> 
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+* {
+    font-family: "Inconsolata", monospace;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --name-Gradient: #f37362 to #ffffff;
+    --ticket-Gradient: #4b486a to #8784a4;
+    --main-backround-color: #0c082b;
+    --email-color: #e16151;
+    --email-color2: #f57261;
+    --font-color: #8784a4;
+    --font-color2: #d2d1d6;
+    --main-color: #ffffff;
+    --font-size: 20px;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+}    
+
+/* General Styling */
+/* =============== */
+
+.outer_border {
+    background-color: #4b486a3d;
+    position: relative;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.outer_border::before {
+    content: "";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.outer_border:focus-within::before {
+    border-color: var(--font-color);
+}
+
+.outer_border:hover {
+    background-color: #8784a45c;
+}
+
+.background_container {
+    min-height: 100vh;
+    background-image: 
+    url('../assets/images/pattern-lines.svg'),
+    url('../assets/images/pattern-squiggly-line-bottom-desktop.svg'),
+    url('../assets/images/pattern-circle.svg'),
+    url('../assets/images/pattern-squiggly-line-top.svg'),
+    url('../assets/images/background-desktop.png');
+
+    background-position: top, bottom left, 85% 50%, 100% 5%, center;
+    
+    background-size: cover, 60%, auto, auto, cover;
+
+    background-repeat: no-repeat;
+}
+
+@media(max-width: 768px) {
+    .background_container {
+        background-image: 
+        url('../assets/images/pattern-lines.svg'),
+        url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg'),
+        url('../assets/images/pattern-circle.svg'),
+        url('../assets/images/pattern-squiggly-line-top.svg'),
+        url('../assets/images/background-tablet.png');
+        
+        background-size: cover, 80%, 50%, 40%, cover;
+        background-position: top, bottom left, 150% 50%, 100% 5%, center;
+    }
+}
+
+@media(max-width: 600px) {
+    .background_container {
+        background-image: 
+        url('../assets/images/pattern-lines.svg'),
+        url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg'),
+        url('../assets/images/pattern-circle.svg'),
+        url('../assets/images/pattern-squiggly-line-top.svg'),
+        url('../assets/images/background-mobile.png');
+        
+        background-size: cover, 80%, 50%, 35%, cover;
+        background-position: top, bottom left, 150% 50%, 100% 5%, center;
+
+    }
+}
+
+/* Start Header */
+/* =============*/
+
+header {
+    width: 360px;
+    margin: auto;
+    padding: 25px 0 15px;
+    text-align: center;
+
+}
+
+/* Start Main */
+/* =============*/
+
+main {
+    width: 600px;
+    margin: 15px auto 0;
+    text-align: center;
+}
+
+.intro {
+    /* display: none; */
+}
+
+main h1{
+    color: #ffffff;
+    font-size: 40px;
+    margin: 15px 0 15px;
+}
+
+main p {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--font-color);
+}
+
+section.upload {
+    width: 350px;
+    margin: 25px auto 0;
+    color: var(--main-color);
+    
+    /* display: none; */
+}
+
+section.upload > p {
+    font-size: 12px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--main-color);
+    text-align: start;
+}
+
+section.upload div.upload_container {
+    border: 1px dashed var(--font-color);
+    background-color: #4b486a3d;
+    border-radius: 7px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+section.upload div.active {
+    background-color: #8784a45c;
+    position: relative;
+    z-index: 0;
+}
+
+section.upload div.active::before {
+    content: "";
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    border: 1px solid var(--font-color);
+    border-radius: 10px;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+section.upload div.upload_container + p,
+form .email > p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+    font-size: 8px;
+    color: var(--font-color);
+}
+
+form .email > p {
+    margin-top: 0;
+    display: none;
+}
+
+section.upload div.upload_container + p span,
+form .email > p span {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    mask-image: url(../assets/images/icon-info.svg);
+    mask-size: cover;
+    background-color: var(--font-color);
+}
+
+section.upload div.upload_container + p.error,
+form .email > p.error { 
+    color: var(--email-color);
+    transform: scale(1.01);
+}
+
+section.upload div.upload_container + p span.error,
+form .email > p span.error {
+    background-color: var(--email-color);
+}
+
+section.upload div.upload_container + p span img {
+    display: block;
+    width: 13px;
+}
+
+.unloaded span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid #8784a454;
+    border-radius: 6px;
+    background-color: #4b486a7b;
+}
+
+.unloaded span img,
+.loaded span img {
+    display: block;
+    width: 20px;
+}
+
+.unloaded p {
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+.loaded span {
+    padding: 0;
+}
+
+.loaded > span {
+    display: inline-block;
+    border: 1px solid #8784a454;
+    border-radius: 6px;
+    width: 40px;
+    max-width: 40px;
+    height: 40px;
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.loaded span img {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+}
+
+.loaded div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.loaded div span {
+    display: inline-block;
+    background-color: var(--font-color);
+    padding: 5px;
+    background-color: #4b486a7b;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.loaded div span:first-child {
+    text-decoration: underline;
+}
+
+.loaded {
+    display: none;
+    position: relative;
+}
+
+/* Form */
+
+form {
+    width: 350px;
+    margin: 25px auto 0;
+    color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    /* display: none; */
+}
+
+form > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    z-index: 10;
+}
+
+form > div label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+form > div > span.outer_border {
+    display: inline-block;
+    border-radius: 8px;
+    width: 100%;
+    z-index: 0;
+    /* background-color: #4b486a; */
+}
+
+form input{
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--font-color);
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--main-color);
+    background-color: #4b486a3d;
+}
+
+
+form input::placeholder {
+    color: var(--font-color);
+}
+
+form button.outer_border {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--email-color2);
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 7px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 0;
+}
+
+form button.outer_border:hover {
+    background-color: var(--email-color2);
+}
+
+
+/* Start Showing Card */
+/* ================== */
+
+section.showing_card {
+    display: none;
+}
+
+section.showing_card .info {
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(10px);
+    animation: card_info .7s linear forwards;
+}
+
+@keyframes card_info {
+    to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px);
+    }
+}
+
+section.showing_card .info h2 {
+    color: #ffffff;
+    font-size: 45px;
+    margin: 15px 0 15px;
+}
+
+section.showing_card .info h2 span {
+    display: inline-block;
+    background-image: linear-gradient(90deg, #f37362 0%, #ffffff);
+    background-size: 700% 300%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: background_name 1s linear forwards;
+}
+
+.displaied_name,
+.person_info_name {
+    text-transform: capitalize;
+}
+
+@keyframes background_name {
+    from {
+        background-position: 100% 50%;
+    }
+    to {
+        background-position: 50% 50%;
+        background-size: 100% 100%;
+    }
+}
+
+section.showing_card .info h2 + p {
+    width: 400px;
+    margin:25px auto 60px;
+    text-align: center;
+    font-size: 15px;
+}
+
+section.showing_card .info h2 + p span {
+    color: var(--email-color);
+}
+
+.card {
+    width: 400px;
+    height: 187px;
+    margin: 0 auto;
+    background-image: url(../assets/images/pattern-ticket.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: start;
+    padding: 15px;
+    position: relative;
+    opacity: 0;
+    animation: card 1s linear .5s forwards;
+}
+
+@keyframes card {
+    to {
+        opacity: 1;
+    }
+}
+
+.card .logo {
+    display: inline-block;
+    width: 190px;
+    height: 30px;
+    margin-bottom: 5px;
+    background-image: url(../assets/images/logo-full.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card .logo + p {
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: 40px;
+    color: var(--font-color2);
+}
+
+.card .person {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.card .person span.image {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url(../assets/images/image-avatar.jpg);
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.card .person .person_info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--main-color);
+    font-size: 12px;
+}
+
+.card .person .person_info span.person_info_name {
+    font-size: 18px;
+}
+
+.card .person .person_info span.person_info_github{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--font-color2);
+}
+.card .person .person_info span.github_image {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: var(--font-color2);
+    mask-image: url(../assets/images/icon-github.svg);
+    mask-size: cover;
+}
+
+.card .serial_num {
+    color: #d2d1d687;
+    font-weight: 400;
+    margin: 0;
+    font-size: 18px;
+    position: absolute;
+    top: calc(50% - 15px);
+    right: 4%;
+    transform: rotate(90deg) translate(0, -50%);
+}
+
+
+@media(max-width: 600px) {
+    main {
+        width: 360px;
+    }
+    main h1 {
+        font-size: 32px;
+    }
+    main p {
+        font-size: 20px;
+    }
+    section.upload {
+        width: 360px;
+    }
+    section.showing_card {
+        width: 360px;
+    }
+
+    section.showing_card .info h2 {
+        font-size: 30px;
+    }
+
+    section.showing_card .info h2 + p {
+        font-size: 17px;
+        width: 340px;
+    }
+
+    .card {
+        width: 360px;
+        height: 170px;
+        background-size: contain;
+    }
+}
+
