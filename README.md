@@ -6,8 +6,8 @@ A modern frontend project that allows users to generate a personalized conferenc
 
 ## 🚀 Live Demo & Repository
 
-* 🌐 Live Demo: [Add your live demo link here]
-* 💻 GitHub Repository: [Add your repository link here]
+* 🌐 Live Demo: https://shadymo2291.github.io/JavaScript-Projects-Conference-Ticket-GeneratorSolution/
+* 💻 GitHub Repository: https://github.com/shadymo2291/JavaScript-Projects-Conference-Ticket-GeneratorSolution
 
 ---
 
