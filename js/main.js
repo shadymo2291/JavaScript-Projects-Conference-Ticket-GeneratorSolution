@@ -240,33 +240,3 @@ submit_btn.addEventListener("click", () => {
     );
   }
 });
-
-function success(position) {
-  const lat = position.coords.latitude;
-  const lon = position.coords.longitude;
-
-  console.log("Coords:", lat, lon);
-
-  fetch(
-    `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`,
-  )
-    .then((res) => {
-      console.log("Response status:", res.status);
-      return res.json();
-    })
-    .then((data) => {
-      console.log("FULL DATA:", data);
-
-      const city =
-        data.address.city ||
-        data.address.town ||
-        data.address.village ||
-        data.address.state;
-
-      console.log("City:", city);
-      console.log("Country:", data.address.country);
-    })
-    .catch((err) => {
-      console.log("FETCH ERROR:", err);
-    });
-}
